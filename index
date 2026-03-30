@@ -106,6 +106,7 @@
         /* Custom scale for hero video */
         .video-scale { transform: scaleY(-1); }
     </style>
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body class="bg-surface text-on-surface">
 <!-- Top Navigation Bar -->
@@ -151,6 +152,7 @@
 <button class="cta-gradient text-on-primary px-8 py-4 rounded-full font-geist font-medium text-sm tracking-tight inner-shadow-cta hover:opacity-90 transition-all">
                         Create Free Account
                     </button>
+<model-viewer src="your-model.glb" ar camera-controls touch-action="pan-y" alt="A 3D model" auto-rotate></model-viewer>
 </div>
 <!-- Social Proof -->
 <div class="flex flex-col items-center gap-2">
