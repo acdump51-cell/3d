@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CURATOR | Remote Team Management</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Instrument+Serif:ital@0;1&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-dim": "#50535f",
+              "tertiary-fixed": "#dfd5f7",
+              "on-error-container": "#752121",
+              "on-tertiary": "#fdf7ff",
+              "error-dim": "#4e0309",
+              "surface-container-high": "#e4e9ea",
+              "on-secondary-fixed": "#3c3f4b",
+              "on-surface": "#2d3435",
+              "on-primary-container": "#525151",
+              "surface-container-highest": "#dde4e5",
+              "on-tertiary-container": "#4f4964",
+              "outline-variant": "#adb3b4",
+              "surface-bright": "#f9f9f9",
+              "primary-container": "#e5e2e1",
+              "secondary-container": "#e0e1f1",
+              "on-secondary-container": "#4e515e",
+              "secondary-fixed-dim": "#d2d3e3",
+              "on-secondary-fixed-variant": "#585b68",
+              "primary-fixed-dim": "#d6d4d3",
+              "surface-variant": "#dde4e5",
+              "inverse-primary": "#ffffff",
+              "surface-container": "#ebeeef",
+              "tertiary-dim": "#564f6b",
+              "on-background": "#2d3435",
+              "secondary": "#5c5e6c",
+              "surface-dim": "#d3dbdd",
+              "primary-fixed": "#e5e2e1",
+              "tertiary-container": "#dfd5f7",
+              "tertiary": "#625b77",
+              "error-container": "#fe8983",
+              "tertiary-fixed-dim": "#d0c7e8",
+              "primary-dim": "#535252",
+              "primary": "#5f5e5e",
+              "surface": "#f9f9f9",
+              "background": "#f9f9f9",
+              "on-secondary": "#faf8ff",
+              "surface-tint": "#5f5e5e",
+              "error": "#9f403d",
+              "secondary-fixed": "#e0e1f1",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "on-error": "#fff7f6",
+              "inverse-surface": "#0c0f0f",
+              "surface-container-low": "#f2f4f4",
+              "inverse-on-surface": "#9c9d9d",
+              "on-primary": "#faf7f6",
+              "on-surface-variant": "#5a6061",
+              "outline": "#757c7d",
+              "on-primary-fixed": "#403f3f",
+              "on-tertiary-fixed-variant": "#59526e",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#3c3650"
+            },
+            fontFamily: {
+              "headline": ["Instrument Serif", "serif"],
+              "body": ["Geist", "sans-serif"],
+              "label": ["Geist", "sans-serif"],
+              "geist": ["Geist", "sans-serif"],
+              "serif": ["Instrument Serif", "serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f9;
+            color: #373a46;
+            font-family: 'Geist', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .text-ink { color: rgba(55, 58, 70, 0.8); }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 26.416%, #ffffff 66.943%);
+        }
+        .cta-gradient {
+            background: linear-gradient(145deg, #5f5e5e 0%, #5c5e6c 100%);
+        }
+        .inner-shadow-cta {
+            box-shadow: inset -4px -6px 25px 0px rgba(201,201,201,0.08), inset 4px 4px 10px 0px rgba(29,29,29,0.24);
+        }
+        .input-shadow {
+            box-shadow: 0px 10px 40px 5px rgba(194,194,194,0.25);
+        }
+        /* Custom scale for hero video */
+        .video-scale { transform: scaleY(-1); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-[#f9f9f9]/70 dark:bg-[#373a46]/70 backdrop-blur-xl">
+<nav class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto">
+<div class="font-['Geist'] font-bold tracking-[-0.04em] text-[#373a46] dark:text-[#f9f9f9] text-lg">
+                CURATOR
+            </div>
+<div class="hidden md:flex items-center gap-12">
+<a class="font-['Geist'] font-medium tracking-[-0.04em] uppercase text-[0.6875rem] text-[#373a46] dark:text-[#f9f9f9] hover:text-[#373a46] dark:hover:text-white transition-colors duration-300" href="#">Archive</a>
+<a class="font-['Geist'] font-medium tracking-[-0.04em] uppercase text-[0.6875rem] text-[#373a46] dark:text-white border-b border-[#373a46]/20 hover:text-[#373a46] dark:hover:text-white transition-colors duration-300" href="#">Editorial</a>
+<a class="font-['Geist'] font-medium tracking-[-0.04em] uppercase text-[0.6875rem] text-[#373a46]/60 dark:text-[#f9f9f9]/60 hover:text-[#373a46] dark:hover:text-white transition-colors duration-300" href="#">Studio</a>
+<a class="font-['Geist'] font-medium tracking-[-0.04em] uppercase text-[0.6875rem] text-[#373a46]/60 dark:text-[#f9f9f9]/60 hover:text-[#373a46] dark:hover:text-white transition-colors duration-300" href="#">About</a>
+</div>
+<button class="font-['Geist'] font-medium tracking-[-0.04em] uppercase text-[0.6875rem] text-[#373a46] dark:text-[#f9f9f9] hover:opacity-70 transition-opacity">
+                Contact
+            </button>
+</nav>
+</header>
+<main class="relative min-h-screen w-full flex flex-col items-center">
+<!-- Video Background Section -->
+<div class="absolute inset-0 w-full h-[870px] z-0 overflow-hidden">
+<video autoplay="" class="w-full h-full object-cover video-scale" loop="" muted="" playsinline="" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260302_085640_276ea93b-d7da-4418-a09b-2aa5b490e838.mp4"></video>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<!-- Hero Content Container -->
+<section class="relative z-10 w-full max-w-[1200px] flex flex-col items-center text-center gap-8 pt-[290px] px-6">
+<!-- Headline -->
+<h1 class="font-geist font-medium tracking-[-0.04em] leading-[1.1] text-on-surface max-w-[900px]">
+<span class="text-[80px]">Simple </span>
+<span class="font-serif italic text-[100px] text-primary">management</span>
+<span class="text-[80px] block">for your remote team</span>
+</h1>
+<!-- Description -->
+<p class="font-geist text-[18px] text-ink max-w-[554px] leading-relaxed">
+                Streamline communication, track project milestones, and cultivate a cohesive digital workspace from anywhere in the world.
+            </p>
+<!-- Interaction Area -->
+<div class="mt-4 flex flex-col items-center gap-6 w-full">
+<!-- Email Input Bar -->
+<div class="flex items-center p-2 pl-6 bg-[#fcfcfc] border border-outline-variant/20 rounded-full w-full max-w-[500px] input-shadow">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-ink font-geist text-sm placeholder:text-[#373a46]/40" placeholder="Work email address" type="email"/>
+<button class="cta-gradient text-on-primary px-8 py-4 rounded-full font-geist font-medium text-sm tracking-tight inner-shadow-cta hover:opacity-90 transition-all">
+                        Create Free Account
+                    </button>
+</div>
+<!-- Social Proof -->
+<div class="flex flex-col items-center gap-2">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-[#5f5e5e] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#5f5e5e] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#5f5e5e] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#5f5e5e] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#5f5e5e] text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-['Geist'] text-[0.6875rem] tracking-tight uppercase text-ink/60">1,020+ Reviews</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid / Feature Section Preview (Asymmetric Layout) -->
+<section class="relative z-10 w-full max-w-[1200px] mt-32 px-6 pb-40">
+<div class="grid grid-cols-12 gap-6">
+<!-- Large Feature Card -->
+<div class="col-span-12 md:col-span-8 bg-surface-container-low rounded-lg p-12 flex flex-col justify-end min-h-[500px] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-2/3 h-full opacity-40 mix-blend-multiply transition-transform duration-700 group-hover:scale-105">
+<img alt="Collaboration" class="w-full h-full object-cover" data-alt="Modern minimalist workspace with three diverse team members collaborating over a tablet in a bright airy studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX-0_y2jp72HL8yuVR_ic_d1f2yFurAoirXOkVNwfsyWqhXR3_haMCS-YqdA15x0VW1MfgVM3ICOAkkjaLYS0W5nPPMvdJ45wdzOJ78OAcF_jdVsTdcRKRhRTtWYJkVPvkg1pdJ81sjY6kaR7rNbbXiAKcZEL8wIIVbNRlci--06ypIbZrmDc3FoKIGAEItoO3gzSS-Tqi5nsPR4hGA0IjY9MLTiuUfAoIuqWi7zd9s0aLAPAiN42tlrfgAIF99vKQVEggseH3IUg"/>
+</div>
+<div class="relative z-10 max-w-[360px]">
+<span class="font-serif italic text-2xl mb-4 block text-primary">Unprecedented</span>
+<h3 class="text-3xl font-geist font-medium tracking-tight mb-4">Focus on what matters. We'll handle the logistics.</h3>
+<p class="text-ink text-sm leading-relaxed">Our automated workflows ensure your team spends less time on administrative tasks and more time on creative breakthroughs.</p>
+</div>
+</div>
+<!-- Small Supporting Card -->
+<div class="col-span-12 md:col-span-4 bg-surface-container-highest rounded-lg p-10 flex flex-col justify-between min-h-[500px]">
+<div class="w-16 h-16 rounded-xl bg-surface-container-lowest flex items-center justify-center input-shadow">
+<span class="material-symbols-outlined text-primary text-3xl">query_stats</span>
+</div>
+<div>
+<h4 class="text-xl font-geist font-medium mb-3">Real-time Analytics</h4>
+<p class="text-ink text-sm">Visualize productivity trends with our high-fidelity reporting dashboard.</p>
+<hr class="my-6 border-outline-variant/20"/>
+<div class="flex items-center gap-2 text-primary font-geist text-[0.6875rem] uppercase font-bold tracking-widest cursor-pointer hover:gap-4 transition-all">
+<span>Explore Insights</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f2f4f4] dark:bg-[#1a1c1e] w-full py-12 px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 w-full max-w-[1440px] mx-auto">
+<div class="font-['Geist'] font-bold text-sm text-[#373a46] dark:text-[#f9f9f9]">
+                CURATOR
+            </div>
+<div class="font-['Geist'] text-[0.6875rem] tracking-tight text-[#373a46] dark:text-[#f9f9f9]">
+                © 2024 THE DIGITAL CURATOR. ALL RIGHTS RESERVED.
+            </div>
+<div class="flex gap-8">
+<a class="font-['Geist'] text-[0.6875rem] tracking-tight text-[#373a46] dark:text-[#f9f9f9] opacity-60 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+<a class="font-['Geist'] text-[0.6875rem] tracking-tight text-[#373a46] dark:text-[#f9f9f9] opacity-60 hover:opacity-100 transition-opacity" href="#">Terms</a>
+<a class="font-['Geist'] text-[0.6875rem] tracking-tight text-[#373a46] dark:text-[#f9f9f9] opacity-60 hover:opacity-100 transition-opacity" href="#">Instagram</a>
+</div>
+</div>
+</footer>
+</body></html>
